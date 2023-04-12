@@ -16,9 +16,8 @@ import com.sebastian.marketar.helpers.ScreenHeightDp
 fun ProductsComponent(navController: NavHostController) {
     Column(
         modifier = Modifier
-            .height((ScreenHeightDp() - 140).dp)
-            .fillMaxWidth()
-            .background(Color.Green),
+            .height((ScreenHeightDp() - 70).dp)
+            .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {

@@ -24,18 +24,12 @@ fun LandingComponent(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.Red)
-            .height((ScreenHeightDp() - 140).dp),
+            .height((ScreenHeightDp() - 70).dp),
         horizontalAlignment = Alignment.CenterHorizontally
-
-
-
-
         ) {
         LazyVerticalGrid(
             cells = GridCells.Fixed(1),
             contentPadding = PaddingValues(60.dp),
-            modifier = Modifier.background(Color.Black)
 
         ) {
             items(getKindOfProducts()) { item ->
