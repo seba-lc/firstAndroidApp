@@ -18,6 +18,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sebastian.marketar.ui.components.footer.Footer
 import com.sebastian.marketar.ui.components.header.Header
+import com.sebastian.marketar.ui.screens.CheckoutScreen
+import com.sebastian.marketar.ui.screens.ProductsScreen
 import com.sebastian.marketar.ui.screens.main.LandingScreen
 import com.sebastian.marketar.ui.screens.main.MainScreen
 import com.sebastian.marketar.ui.theme.MarketarTheme
@@ -32,7 +34,13 @@ class MainActivity : ComponentActivity() { // KOTLIN | en este caso los : se tra
                     MainScreen(navController);
                 }
                 composable("landing") {
-                    LandingScreen();
+                    LandingScreen(navController);
+                }
+                composable("products") {
+                    ProductsScreen(navController);
+                }
+                composable("checkout") {
+                    CheckoutScreen(navController);
                 }
             }
         }
@@ -47,24 +55,11 @@ fun MarketarApp(content: @Composable () -> Unit) {
             color = MaterialTheme.colors.background
         ) {
             Column{
+                Header();
                 content();
+                Footer();
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(
-        text = "Hello $name!"
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MarketarTheme {
-        Greeting("Android")
     }
 }
 

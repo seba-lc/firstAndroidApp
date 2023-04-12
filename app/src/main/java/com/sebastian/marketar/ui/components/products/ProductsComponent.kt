@@ -1,11 +1,7 @@
-package com.sebastian.marketar.ui.components.main
+package com.sebastian.marketar.ui.components.products
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -15,22 +11,21 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.sebastian.marketar.helpers.ScreenHeightDp
-import com.sebastian.marketar.ui.temporalData.getKindOfProducts
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MainComponent(navController: NavHostController) {
-    Column (
+fun ProductsComponent(navController: NavHostController) {
+    Column(
         modifier = Modifier
             .height((ScreenHeightDp() - 140).dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .background(Color.Green),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
-            ) {
-        Text(text = "Acá irá el formulario para poner el nombre")
-        Button(onClick = { navController.navigate("landing") }) {
-            Text(text = "Ir al Landing")
+    ) {
+        Text(text = "Acá habrá un listado de ImageCards con los productos y sus fotos")
+        Spacer(modifier = Modifier.height(100.dp).fillMaxWidth())
+        Button(onClick = { navController.navigate("checkout") }) {
+            Text(text = "Carrito")
         }
     }
-
 }

@@ -20,9 +20,6 @@ import com.sebastian.marketar.ui.components.main.MainComponent
 @Composable
 fun MainScreen(navController: NavHostController) {
     MarketarApp {
-        //ACA PUEDO IR VIENDO COMO QUEDAN LOS COMPONENTES. UNO O VARIOS.
-        Header();
         MainComponent(navController);
-        Footer();
     }
 }
