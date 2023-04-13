@@ -12,15 +12,17 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.sebastian.marketar.helpers.ScreenHeightDp
+import com.sebastian.marketar.ui.AppWrapper
 import com.sebastian.marketar.ui.components.footer.Footer
 import com.sebastian.marketar.ui.components.header.Header
 import com.sebastian.marketar.ui.components.main.MainComponent
 
 @Composable
 fun MainScreen(navController: NavHostController) {
-    Header(navController)
-    Column {
-        MainComponent(navController)
-        Footer()
-    }
+    AppWrapper(
+        content = {
+            MainComponent(navController)
+        },
+        navController = navController
+    )
 }
