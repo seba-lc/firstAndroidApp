@@ -2,6 +2,7 @@ package com.sebastian.marketar.ui.screens.main
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,11 +19,8 @@ import com.sebastian.marketar.ui.components.header.Header
 import com.sebastian.marketar.ui.components.main.MainComponent
 
 @Composable
-fun MainScreen(navController: NavHostController) {
-    AppWrapper(
-        content = {
-            MainComponent(navController)
-        },
-        navController = navController
-    )
+fun MainScreen(scaffoldState: ScaffoldState, navController: NavHostController, clientName: String, updateClientName: (String) -> Unit) {
+    MainComponent(scaffoldState, navController, clientName) {
+        updateClientName(it)
+    }
 }

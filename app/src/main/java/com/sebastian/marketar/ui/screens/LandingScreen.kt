@@ -11,11 +11,6 @@ import com.sebastian.marketar.ui.components.landing.LandingComponent
 import com.sebastian.marketar.ui.components.main.MainComponent
 
 @Composable
-fun LandingScreen(navController: NavHostController) {
-    AppWrapper(
-        content = {
-            LandingComponent(navController)
-        },
-        navController = navController
-    )
+fun LandingScreen(navController: NavHostController, clientName: String) {
+    LandingComponent(navController)
 }

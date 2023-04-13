@@ -10,12 +10,7 @@ import com.sebastian.marketar.ui.components.main.MainComponent
 import com.sebastian.marketar.ui.components.products.ProductsComponent
 
 @Composable
-fun ProductsScreen(navController: NavHostController) {
+fun ProductsScreen(navController: NavHostController, clientName: String) {
     //PANTALLA DONDE SE VAN A MOSTRAR TODOS LOS PRODUCTOS DE CADA CATEGORIA
-    AppWrapper(
-        content = {
-            ProductsComponent(navController)
-        },
-        navController = navController
-    )
+    ProductsComponent(navController)
 }

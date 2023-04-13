@@ -1,6 +1,7 @@
 package com.sebastian.marketar.ui
 
 import androidx.compose.material.Scaffold
+import androidx.compose.material.ScaffoldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
@@ -8,16 +9,15 @@ import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavHostController
 import com.sebastian.marketar.ui.components.header.*
 import kotlinx.coroutines.launch
 
 @Composable
-fun AppWrapper(content: @Composable () -> Unit, navController: NavHostController) {
-    val scaffoldState = rememberScaffoldState()
+fun AppWrapper(content: @Composable () -> Unit, navController: NavHostController, clientName: String, scaffoldState: ScaffoldState) {
     val scope = rememberCoroutineScope()
-
     Scaffold(
         scaffoldState = scaffoldState,
         topBar = {
@@ -31,7 +31,7 @@ fun AppWrapper(content: @Composable () -> Unit, navController: NavHostController
         },
         drawerGesturesEnabled = scaffoldState.drawerState.isOpen,
         drawerContent = {
-            NavigationDrawer()
+            NavigationDrawer(clientName)
             DrawerBody(
                 items = listOf(
                     MenuItem(
@@ -61,6 +61,9 @@ fun AppWrapper(content: @Composable () -> Unit, navController: NavHostController
                 ),
                 onItemClick = {
                     navController.navigate(it.id)
+                    scope.launch {
+                        scaffoldState.drawerState.close()
+                    }
                 },
             )
         },

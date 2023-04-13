@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
@@ -14,8 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import coil.compose.rememberImagePainter
 import com.sebastian.marketar.helpers.ScreenHeightDp
-import com.sebastian.marketar.ui.components.main.LandingCardsContainer
+import com.sebastian.marketar.ui.components.imageCard.ImageCard
 import com.sebastian.marketar.ui.temporalData.getKindOfProducts
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -27,35 +29,23 @@ fun LandingComponent(navController: NavHostController) {
             .height((ScreenHeightDp() - 70).dp),
         horizontalAlignment = Alignment.CenterHorizontally
         ) {
-        LazyVerticalGrid(
-            cells = GridCells.Fixed(1),
+        LazyColumn(
             contentPadding = PaddingValues(60.dp),
-
         ) {
             items(getKindOfProducts()) { item ->
-
-                LandingCardsContainer(item.title, navController)
+                ImageCard(
+                    painter = rememberImagePainter(
+                        data = item.url,
+                        builder = {
+                            crossfade(true)
+                        }
+                    ),
+                    contentDescription = item.title,
+                    title = item.title,
+                    navController = navController
+                )
             }
-
         }
 
     }
-
-
-//    Box(
-//        modifier = Modifier
-//            .height((ScreenHeightDp() - 140).dp)
-//            .fillMaxWidth()
-//            .background(Color.LightGray),
-//        contentAlignment = Alignment.Center
-//    ) {
-//        Column() {
-//            Text(
-//                text = "Hi I'm the Landing Screen"
-//            )
-//            Button(onClick = {navController.navigate("main")}) {
-//                Text(text = "Go to Main Page")
-//            }
-//        }
-//    }
 }

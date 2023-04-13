@@ -10,12 +10,7 @@ import com.sebastian.marketar.ui.components.header.Header
 import com.sebastian.marketar.ui.components.main.MainComponent
 
 @Composable
-fun CheckoutScreen(navController: NavHostController) {
+fun CheckoutScreen(navController: NavHostController, clientName: String) {
     //PANTALLA DEL CARRITO
-    AppWrapper(
-        content = {
-            CheckoutComponent(navController)
-        },
-        navController = navController
-    )
+    CheckoutComponent(navController)
 }

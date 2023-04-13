@@ -13,13 +13,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun NavigationDrawer() {
+fun NavigationDrawer(clientName: String) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 64.dp),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Header", fontSize = 60.sp)
+        Text(text = clientName, fontSize = 60.sp)
     }
 }
