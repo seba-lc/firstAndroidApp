@@ -1,4 +1,4 @@
-package com.sebastian.marketar.ui.components.imageCard
+package com.sebastian.marketar.ui.components.productCard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -26,14 +26,14 @@ fun ImageCard(
     contentDescription: String,
     title: String,
     modifier: Modifier = Modifier,
-    navController: NavHostController
+//    navController: NavHostController
 ) {
     Card(
         modifier = modifier.fillMaxWidth().padding(20.dp),
         shape = RoundedCornerShape(15.dp),
         elevation = 5.dp,
         onClick = {
-            navController.navigate("products")
+//            navController.navigate("products")
         }
     ) {
         Box(
