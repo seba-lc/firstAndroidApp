@@ -16,6 +16,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.sebastian.marketar.R
 import com.sebastian.marketar.domain.item.ProductItem
+import com.sebastian.marketar.ui.components.cards.ProductCard
 import com.sebastian.marketar.ui.components.productCard.ImageCard
 import com.sebastian.marketar.ui.components.products.ProductsComponent
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,24 +24,16 @@ import dagger.hilt.android.AndroidEntryPoint
 @Composable
 fun ProductsScreen(products: List<ProductItem>) {
 
-    val painter = painterResource(id = R.drawable.ajo)
-
-//    ImageCard(painter = painter, contentDescription = "ajo", title = "Ajo")
-
     LazyColumn {
-
-
 
         items(products) { product: ProductItem ->
 
-            Box(modifier = Modifier.padding(2.dp)) {
-                Text(text = product.productName + ".... $" + product.price, textDecoration = TextDecoration.Underline)
-            }
-
+            ProductCard(item = product)
 
         }
 
     }
+
 //    ProductsComponent(navController)
 
 }

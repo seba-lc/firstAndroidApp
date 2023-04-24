@@ -17,29 +17,29 @@ import com.sebastian.marketar.ui.temporalData.getKindOfProducts
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun LandingComponent(navController: NavHostController) {
-//    Column(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .height((ScreenHeightDp() - 70).dp),
-//        horizontalAlignment = Alignment.CenterHorizontally
-//        ) {
-//        LazyColumn(
-//            contentPadding = PaddingValues(60.dp),
-//        ) {
-//            items(getKindOfProducts()) { item ->
-//                ImageCard(
-//                    painter = rememberImagePainter(
-//                        data = item.url,
-//                        builder = {
-//                            crossfade(true)
-//                        }
-//                    ),
-//                    contentDescription = item.title,
-//                    title = item.title,
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height((ScreenHeightDp() - 70).dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+        LazyColumn(
+            contentPadding = PaddingValues(60.dp),
+        ) {
+            items(getKindOfProducts()) { item ->
+                ImageCard(
+                    painter = rememberImagePainter(
+                        data = item.url,
+                        builder = {
+                            crossfade(true)
+                        }
+                    ),
+                    contentDescription = item.title,
+                    title = item.title,
 //                    navController = navController
-//                )
-//            }
-//        }
-//
-//    }
+                )
+            }
+        }
+
+    }
 }

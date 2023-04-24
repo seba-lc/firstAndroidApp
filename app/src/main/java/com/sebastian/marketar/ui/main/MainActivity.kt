@@ -35,7 +35,6 @@ class MainActivity :
 
             val scaffoldState = rememberScaffoldState()
 
-
             AppWrapper(
                 content = {
                     NavHost(navController = navController, startDestination = "main") {
